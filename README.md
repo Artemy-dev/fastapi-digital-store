@@ -106,7 +106,8 @@ digital-store/
 ├─ docker-compose.yml
 ├─ domains.txt
 ├─ example.env
-└─ README.md
+├─ README.md
+└─ requirements.txt
 ```
 
 ---
