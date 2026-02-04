@@ -1,0 +1,18 @@
+services:
+
+  db:                   # Имя сервиса. Можно любое, это идентификатор контейнера в Docker
+    image: postgres     # Образ, который Docker будет использовать. Здесь официальный PostgreSQL
+    restart: always     # Если контейнер падает или Docker перезагружается, контейнер стартует снова
+    shm_size: 128mb     # Размер общей памяти (shared memory) для Postgres. Нужно для некоторых операций в БД
+    environment:
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}   # пароль для пользователя PostgreSQL (редактировать в .env)
+      POSTGRES_USER: ${POSTGRES_USER}           # имя пользователя PostgreSQL (редактировать в .env)
+      POSTGRES_DB: ${POSTGRES_DB}               # имя создаваемой базы данных при первом запуске (редактировать в .env)
+    ports:
+      - "${POSTGRES_PORT}:5432"
+
+  cache:
+    image: redis:8.4.0-alpine
+    restart: always
+    ports:
+      - "${REDIS_PORT}:6379"
