@@ -70,7 +70,7 @@ Backend API для цифрового магазина.
 
 ## Архитектура проекта
 ```text
-digital-store/
+fastapi-digital-store/
 ├─ app/
 │  ├─ api/
 │  │   ├─ cart.py
@@ -109,6 +109,12 @@ digital-store/
 ├─ README.md
 └─ requirements.txt
 ```
+
+---
+
+## Переменные окружения (.env)
+
+Перед запуском необходимо создать файл `.env` в корне проекта (скопировать из `example.env`)
 
 ---
 
