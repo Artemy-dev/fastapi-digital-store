@@ -127,7 +127,7 @@ pip install -r requirements.txt
 
 Запуск инфраструктуры:
 ```bash
-docker-compose up
+docker-compose up -d
 ```
 
 Применение миграций:
