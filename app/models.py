@@ -7,7 +7,7 @@ class User(Base):
     __tablename__ = "users"     # Пользователи
     id = Column(Integer, primary_key=True, index=True)
     email = Column(String(255), unique=True, nullable=False, index=True)        # почта
-    password_hash = Column(String(255), nullable=False)                         # хэш пароля для аутентификации
+    password_hash = Column(String(255), nullable=True)                          # хэш пароля для аутентификации (None для OAuth)
     is_admin = Column(Boolean, default=False)                                   # права админа (True/False), по умолчанию False
     cart_items = relationship("Cart", back_populates="user")
     orders = relationship("Order", back_populates="user")

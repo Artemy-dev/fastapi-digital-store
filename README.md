@@ -2,11 +2,11 @@
 
 Backend API для цифрового магазина.
 Реализован на FastAPI с использованием PostgreSQL и Redis.
-Поддерживает JWT-аутентификацию, OAuth2 (Google, Yandex), кеширование данных и контейнеризацию через Docker.
+Поддерживает JWT-аутентификацию, OAuth2 (Google), кеширование данных и контейнеризацию через Docker.
 
 **Аутентификация:**
 - JWT токены в HttpOnly cookies
-- OAuth2 авторизация через Google/Yandex
+- OAuth2 авторизация через Google
 - Пароли хранятся в виде bcrypt-хэшей
 
 **Защита регистрации:**
@@ -30,7 +30,7 @@ Backend API для цифрового магазина.
 ### Пользователи
 - Регистрация пользователей проверяет домен email через кеш Redis для блокировки временных почтовых сервисов.  
 - Пароли хранятся в виде bcrypt-хэшей.  
-- Аутентификация поддерживает JWT (HttpOnly cookies) и OAuth2 (Google/Yandex).  
+- Аутентификация поддерживает JWT (HttpOnly cookies) и OAuth2 (Google).  
 - Пользователи с существующими заказами не могут удалить аккаунт.  
 
 ### Продукты
@@ -62,7 +62,7 @@ Backend API для цифрового магазина.
 - **Backend:** Python, FastAPI
 - **Database:** PostgreSQL, SQLAlchemy, Alembic
 - **Cache:** Redis
-- **Auth:** JWT (cookies), OAuth2 (Google/Yandex)
+- **Auth:** JWT (cookies), OAuth2 (Google)
 - **Async:** Celery
 - **Infrastructure:** Docker, docker-compose
 
@@ -82,7 +82,8 @@ fastapi-digital-store/
 │  │   ├─ config.py
 │  │   ├─ dependencies.py
 │  │   ├─ jwt.py
-│  │   └─ key_gen.py
+│  │   ├─ key_gen.py
+│  │   └─ oauth_google.py
 │  ├─ schemas/
 │  │   ├─ cart.py
 │  │   ├─ orders.py
@@ -114,7 +115,7 @@ fastapi-digital-store/
 
 ## Переменные окружения (.env)
 
-Перед запуском необходимо создать файл `.env` в корне проекта (скопировать из `example.env`)
+Перед запуском необходимо создать файл `.env` в корне проекта (данные скопировать из `example.env`)
 
 ---
 

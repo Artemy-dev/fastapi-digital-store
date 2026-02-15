@@ -3,11 +3,11 @@ from typing import Optional, Annotated
 
 class CreateUser(BaseModel):
     email: EmailStr
-    password: Annotated[str, StringConstraints(min_length=6)]
+    password: Optional[Annotated[str, StringConstraints(min_length=6)]] = None
 
 class LoginUser(BaseModel):
     email: EmailStr
-    password: Annotated[str, StringConstraints(min_length=6)]
+    password: Optional[str] = None
 
 class UserInfo(BaseModel):
     id: int
@@ -24,5 +24,5 @@ class GetUser(BaseModel):
 
 class UpdateUser(BaseModel):
     email: Optional[EmailStr] = None
-    password: Optional[Annotated[str, StringConstraints(min_length=6)]] = None
+    password: Optional[str] = None
 
